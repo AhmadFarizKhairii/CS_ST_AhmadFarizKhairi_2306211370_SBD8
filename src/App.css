@@ -1,0 +1,291 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Warna latar belakang default */
+  color: #333;
+}
+
+.App {
+  min-height: 100vh; /* Pastikan aplikasi memenuhi seluruh tinggi viewport */
+  background-color: #f9f9f9; /* Warna latar belakang default */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 1rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+/* Topics Section */
+.topics {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.topic {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topic:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.topic.active {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel Section */
+.carousel-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.carousel-content {
+  text-align: center;
+  flex: 1;
+  opacity: 0;
+  transform: translateX(100px); /* Awal posisi geser */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi halus */
+}
+
+.carousel-content.active {
+  opacity: 1;
+  transform: translateX(0); /* Posisi akhir */
+}
+
+.carousel-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.carousel-content p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Pastikan tombol berada di atas konten */
+}
+
+.carousel-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+/* Articles Section */
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.article {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.article h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.article p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  max-height: 3rem; /* Tinggi maksimum untuk ringkasan */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.article.expanded p {
+  max-height: 10rem; /* Tinggi maksimum untuk konten penuh */
+  opacity: 1;
+}
+
+.read-more {
+  margin-top: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.read-more:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #181818; /* Warna latar belakang utama */
+  color: #e0e0e0; /* Warna teks utama */
+}
+
+.dark-mode .App {
+  background-color: #181818; /* Pastikan latar belakang utama berubah */
+}
+
+.dark-mode .navbar {
+  background-color: #242424; /* Warna latar belakang navbar */
+  border-bottom: 1px solid #444; /* Warna border navbar */
+}
+
+.dark-mode .topics {
+  background-color: #181818; /* Warna latar belakang container topik */
+}
+
+.dark-mode .carousel-section {
+  background-color: #242424; /* Warna latar belakang carousel */
+}
+
+.dark-mode .articles {
+  background-color: #181818; /* Warna latar belakang container artikel */
+}
+
+.dark-mode .article {
+  background-color: #242424; /* Warna latar belakang artikel */
+  border: 1px solid #444; /* Warna border artikel */
+}
+
+.dark-mode h2,
+.dark-mode h3 {
+  color: #ffffff; /* Warna teks judul */
+}
+
+.dark-mode p {
+  color: #b0b0b0; /* Warna teks paragraf */
+}
+
+.dark-mode .nav-link {
+  color: #b0b0b0; /* Warna teks link di navbar */
+}
+
+.dark-mode .nav-link:hover {
+  color: #ffffff; /* Warna teks link saat hover */
+}
+
+.dark-mode .topic {
+  color: #b0b0b0; /* Warna teks topik */
+}
+
+.dark-mode .topic.active {
+  color: #ffffff; /* Warna teks topik aktif */
+}
+
+.dark-mode .read-more {
+  color: #ffffff; /* Warna teks tombol Read More */
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
